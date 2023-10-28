@@ -1,5 +1,5 @@
 #!/usr/local/bin/python3
-from PIL import Image, ImageOps, ImageEnhance, ImageFilter
+from PIL import Image, ImageOps, ImageEnhance, ImageFilter, ImageDraw
 import argparse
 import pathlib
 import pixelize
@@ -76,6 +76,29 @@ def find_edges(input_filename, output_filename):
 
     # Save the resulting image
     edges.save(output_filename)
+
+
+def draw_grid(input_filename: pathlib.Path, output_filename: pathlib.Path, step_size: int) -> None:
+    image = Image.open(input_filename)
+
+    # Draw some lines
+    draw = ImageDraw.Draw(image)
+    y_start = 0
+    y_end = image.height
+    step_size = int(image.width / step_size)
+
+    for x in range(0, image.width, step_size):
+        line = ((x, y_start), (x, y_end))
+        draw.line(line, fill=128)
+
+    x_start = 0
+    x_end = image.width
+
+    for y in range(0, image.height, step_size):
+        line = ((x_start, y), (x_end, y))
+        draw.line(line, fill=128)
+
+    image.save(output_filename)
 
 
 # pixelize.change_contrast(sys.argv[1], 'tmp.png', 10.0)

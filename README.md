@@ -17,5 +17,19 @@ python pixelizer --input my_image.png \
 * Find edges
 * Quantize
 * Posterize
+* Draw a grid
 
-  
+### Draw a grid
+
+The aim of this technique is to divide the image in X blocks.
+
+```
+python draw_grid.py --input ../imgs/mona.webp --output output.png --step-size 20
+```
+
+Original Picture                  |  Grid picture
+:--------------------------------:|:---------------------------------------------:
+![](test/ground-truth/mona.webp)  |  ![](test/ground-truth/mona-grid.png)
+
+
+

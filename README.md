@@ -29,7 +29,7 @@ python draw_grid.py --input ../imgs/mona.webp --output output.png --step-size 20
 
 Original Picture                  |  Grid picture
 :--------------------------------:|:---------------------------------------------:
-![](test/ground-truth/mona.webp)  |  ![](test/ground-truth/mona-grid.png)
+![](https://github.com/mesarpe/pixelizer/blob/master/tests/ground-truth/mona-grid.png?raw=true test/ground-truth/mona.webp)  |  ![](https://github.com/mesarpe/pixelizer/blob/master/tests/ground-truth/mona.webp)
 
 
 

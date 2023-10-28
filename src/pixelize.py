@@ -101,6 +101,15 @@ def draw_grid(input_filename: pathlib.Path, output_filename: pathlib.Path, step_
     image.save(output_filename)
 
 
+def resize(input_filename: pathlib.Path, output_filename: pathlib.Path, ratio=2):
+    image = Image.open(input_filename)
+
+    maxsize = (int(image.width*ratio), int(image.height*ratio))
+    image = image.resize(maxsize)
+
+    image.save(output_filename)
+
+
 # pixelize.change_contrast(sys.argv[1], 'tmp.png', 10.0)
 
 # pixelize.posterize('tmp.png', 'tmp_posterized.png', nr_bits=2)

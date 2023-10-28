@@ -32,4 +32,18 @@ Original Picture                  |  Grid picture
 ![](https://github.com/mesarpe/pixelizer/blob/main/tests/ground-truth/mona.webp?raw=true)  |  ![](https://github.com/mesarpe/pixelizer/blob/main/tests/ground-truth/mona-grid.png?raw=true)
 
 
+### Draw a grid
+
+Change the size of an image. You have the option to increase or reduce the size. To decrease the size, simply use a `0 < number < 1`. To increase bigger than 1.
+
+```
+python resize.py --input ../tests/ground-truth/mona.webp --output ../tests/ground-truth/mona-small.png --ratio 0.5
+```
+
+Original Picture                  |  Grid picture
+:--------------------------------:|:---------------------------------------------:
+![](https://github.com/mesarpe/pixelizer/blob/main/tests/ground-truth/mona.webp?raw=true)  |  ![](https://github.com/mesarpe/pixelizer/blob/main/tests/ground-truth/mona-small.png?raw=true)
+
+
+
 

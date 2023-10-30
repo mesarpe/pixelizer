@@ -1,6 +1,7 @@
 #!/usr/local/bin/python3
 from PIL import Image, ImageOps, ImageEnhance, ImageFilter, ImageDraw
 import argparse
+import csv
 import pathlib
 import pixelize
 
@@ -36,15 +37,21 @@ def posterize(
     im2.save(filename_output)
 
 
-def quantize(filename_input: pathlib.Path, filename_output: pathlib.Path) -> None:
+def quantize(filename_input: pathlib.Path, filename_output: pathlib.Path, palette=None) -> None:
 
     # Make tiny palette Image, one black pixel
     palIm = Image.new("P", (1, 1))
 
     # Make your desired B&W palette containing only 1 pure white, many black and some grey colors
-    palette = (
-        [255, 255, 255] + [0, 0, 0] + [64, 64, 64] + [125, 125, 125]
-    )  # + [172, 172, 172] + [200, 200, 200] + [255, 0, 0] + [125, 0,0 ] + [255, 255, 0] + [64, 64, 0]
+    if palette is None:
+        palette = (
+            [255, 255, 255] + [0, 0, 0] + [64, 64, 64] + [125, 125, 125]
+        )  # + [172, 172, 172] + [200, 200, 200] + [255, 0, 0] + [125, 0,0 ] + [255, 255, 0] + [64, 64, 0]
+    else:
+        co = []
+        for c in palette:
+            co += c
+        palette = (co)
     # Push in our lovely B&W palette and save just for debug purposes
     palIm.putpalette(palette)
     # palIm.save('DEBUG-palette.png')
@@ -117,6 +124,24 @@ def resize(input_filename: pathlib.Path, output_filename: pathlib.Path, ratio=2)
 # find_edges('tmp_posterized.png', sys.argv[2])
 # find_edges(sys.argv[1], sys.argv[2])
 
+def read_palette_from_file(filename: pathlib.Path):
+    colors = []
+    csv_reader = csv.reader(open(filename, 'r'), delimiter=';')
+    for row in csv_reader:
+        color = []
+        if row == '':
+            continue
+        for col in row:
+            if col == '':
+                continue
+            color.append(int(col))
+        if color == []:
+            continue
+        colors.append(
+            color
+        )
+    return colors
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
@@ -134,9 +159,18 @@ if __name__ == "__main__":
         help="the resolution of the image as WIDTHxHEIGHT (i.e. 30x30)",
         default="64x64"
     )
+    parser.add_argument('--palette_file', dest='palette_filename',
+        default=None
+    )
     args = parser.parse_args()
 
     img_f = args.input_filename
+
+    palette = None
+    if args.palette_filename is not None:
+         palette = read_palette_from_file(args.palette_filename)
+         print(palette)
+
     resolution = args.resolution.split("x")
     resolution = (int(resolution[0]), int(resolution[1]))
 
@@ -144,4 +178,5 @@ if __name__ == "__main__":
     change_contrast("img1_contrast.png", "img1_contrast.png", 2.5)
 
     pixelize("img1_contrast.png", "img1_pixelized.png", resolution)
-    posterize("img1_pixelized.png", args.output_filename, nr_bits=2)
+    #posterize("img1_pixelized.png", args.output_filename, nr_bits=2)
+    quantize("img1_pixelized.png", args.output_filename, palette=palette)

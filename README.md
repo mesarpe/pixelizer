@@ -55,10 +55,18 @@ Change the size of an image. You have the option to increase or reduce the size.
 python resize.py --input ../tests/ground-truth/mona.webp --output ../tests/ground-truth/mona-small.png --ratio 0.5
 ```
 
-Original Picture                  |  Grid picture
+Original Picture                  |  Resized picture
 :--------------------------------:|:---------------------------------------------:
 ![](https://github.com/mesarpe/pixelizer/blob/main/tests/ground-truth/mona.webp?raw=true)  |  ![](https://github.com/mesarpe/pixelizer/blob/main/tests/ground-truth/mona-small.png?raw=true)
 
 
+# Find Edges
 
+```bash
+python find-edges.py ../imgs/mona.webp /tmp/mona-edges.png
+```
+
+Original Picture                  |  Edges picture
+:--------------------------------:|:---------------------------------------------:
+![](https://github.com/mesarpe/pixelizer/blob/main/tests/ground-truth/mona.webp?raw=true)  |  ![](https://github.com/mesarpe/pixelizer/blob/main/tests/ground-truth/mona-edges.png?raw=true)
 

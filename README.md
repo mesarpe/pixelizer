@@ -20,6 +20,20 @@ python pixelizer --input my_image.png \
 * Posterize
 * Draw a grid
 
+### Change Contrast
+
+Changing the contrast is useful to highlight certain parts of the image. If you increase the contrast, the distance between the colors is more vivid.
+
+```python
+change_contrast("input_image.jpg", "img1_contrast.png", 2.0)
+```
+
+Original Picture                  |  Increased contrast
+:--------------------------------:|:---------------------------------------------:
+![](https://github.com/mesarpe/pixelizer/blob/main/tests/ground-truth/mona.webp?raw=true)  |  ![](https://github.com/mesarpe/pixelizer/blob/main/tests/ground-truth/mona-change-contrat.png?raw=true)
+
+
+
 ### Draw a grid
 
 The aim of this technique is to divide the image in X blocks.

@@ -30,7 +30,7 @@ change_contrast("input_image.jpg", "img1_contrast.png", 2.0)
 
 Original Picture                  |  Increased contrast
 :--------------------------------:|:---------------------------------------------:
-![](https://github.com/mesarpe/pixelizer/blob/main/tests/ground-truth/mona.webp?raw=true)  |  ![](https://github.com/mesarpe/pixelizer/blob/main/tests/ground-truth/mona-change-contrat.png?raw=true)
+![](https://github.com/mesarpe/pixelizer/blob/main/tests/ground-truth/mona.webp?raw=true)  |  ![](https://github.com/mesarpe/pixelizer/blob/main/tests/ground-truth/mona-change-contrast.png?raw=true)
 
 
 

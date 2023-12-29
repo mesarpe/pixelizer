@@ -6,6 +6,12 @@ import pathlib
 import pixelize
 
 
+def image_size(
+    filename_input: pathlib.Path) -> tuple[int, int]:
+    im = Image.open(filename_input)
+    return (im.width, im.height)
+
+
 def pixelize(
     filename_input: pathlib.Path,
     filename_output: pathlib.Path,

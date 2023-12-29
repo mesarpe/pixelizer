@@ -14,6 +14,7 @@ python pixelizer --input my_image.png \
 ## Techniques being studied
 
 * Change constrast
+* Resize
 * Find edges
 * Quantize
 * Posterize
@@ -32,7 +33,7 @@ Original Picture                  |  Grid picture
 ![](https://github.com/mesarpe/pixelizer/blob/main/tests/ground-truth/mona.webp?raw=true)  |  ![](https://github.com/mesarpe/pixelizer/blob/main/tests/ground-truth/mona-grid.png?raw=true)
 
 
-### Draw a grid
+### Resize
 
 Change the size of an image. You have the option to increase or reduce the size. To decrease the size, simply use a `0 < number < 1`. To increase bigger than 1.
 

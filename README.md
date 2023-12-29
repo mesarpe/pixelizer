@@ -70,3 +70,14 @@ Original Picture                  |  Edges picture
 :--------------------------------:|:---------------------------------------------:
 ![](https://github.com/mesarpe/pixelizer/blob/main/tests/ground-truth/mona.webp?raw=true)  |  ![](https://github.com/mesarpe/pixelizer/blob/main/tests/ground-truth/mona-edges.png?raw=true)
 
+
+# Pixelize
+
+```bash
+python pixelize.py ../imgs/mona.webp /tmp/mona-pixelized.png --resolution 32x32
+```
+
+Original Picture                  |  Pixelized picture
+:--------------------------------:|:---------------------------------------------:
+![](https://github.com/mesarpe/pixelizer/blob/main/tests/ground-truth/mona.webp?raw=true)  |  ![](https://github.com/mesarpe/pixelizer/blob/main/tests/ground-truth/mona-pixelized.png?raw=true)
+
